@@ -111,33 +111,3 @@ body {
 	align-items: center;
 	justify-content: center;
 }
-
-.leaderboard {
-	width: 100%;
-	height: fit-content;
-	background-color: #ddd;
-}
-
-.leaderboard .info {
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	border-bottom: 5px solid #eee;
-	padding: 10px 30px;
-}
-
-.leaderboard .users {
-	height: 100%;
-	width: 100%;
-}
-
-.leaderboard .user {
-	font-size: 30px;
-	width: 100%;
-	height: 30px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 30px;
-	border-bottom: 1px solid #eee;
-}

@@ -44,7 +44,7 @@ document.querySelector(".control-buttons button").onclick = async function () {
 			});
 			end("you are loser!");
 		}
-	}, 20);
+	}, 1000);
 };
 
 // sounds
@@ -75,7 +75,12 @@ blocks.forEach((block, index) => {
 
 // check matched blocks
 
+let flippedBlocks;
+
 function matchBlocks(first, second) {
+	flippedBlocks = blocks.filter((block) =>
+		block.classList.contains("has-match"),
+	);
 	let tries = document.querySelector(".tries span");
 	if (first.dataset.technology === second.dataset.technology) {
 		first.classList.remove("is-flipped");
@@ -83,7 +88,7 @@ function matchBlocks(first, second) {
 		first.classList.add("has-match");
 		second.classList.add("has-match");
 		correct.play();
-		if (flippedBlocks.length === orderRange.length)
+		if (flippedBlocks.length === 18)
 			setTimeout(() => {
 				end("you are winner!");
 			}, 35);
@@ -97,15 +102,14 @@ function matchBlocks(first, second) {
 		}, duration);
 		fail.play();
 	}
+	console.log(flippedBlocks.length);
+	console.log(orderRange.length);
 }
 
 // win
 
 let tries = document.querySelector(".tries span");
 function end(msg) {
-	let flippedBlocks = blocks.filter((block) =>
-		block.classList.contains("has-match"),
-	);
 	// Make Leader board
 	clearInterval(timer);
 	let user = {
